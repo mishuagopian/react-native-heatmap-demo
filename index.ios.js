@@ -4,19 +4,14 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React from 'react';
+import { AppRegistry } from 'react-native';
 
-import Heatmap from './src/scenes/Heatmap';
+import Index from './src/scenes';
 
 export default function reactNativeHeatmap () {
   return (
-    <Heatmap />
+    <Index />
   );
 }
 

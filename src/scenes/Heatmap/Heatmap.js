@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, View, WebView } from 'react-native';
 
-import HeatmapUtils from './../utils/HeatmapUtils';
+import HeatmapUtils from '../../utils/HeatmapUtils';
 import styles from './Heatmap.styles';
 
 const heatmapInputGenerator = (points, radius, max) => {
@@ -11,7 +11,7 @@ const heatmapInputGenerator = (points, radius, max) => {
       radius: ${radius}
     });
     heatmapInstance.setData({
-      max: ${max}, 
+      max: ${max},
       data: ${JSON.stringify(points)}
     });
   `;
@@ -44,7 +44,7 @@ export default class Heatmap extends Component {
 
     if (this.state.processedPoints) {
       const maxValue = Math.max(...this.state.processedPoints.map((p) => p.value));
-      // script = heatmapInputGenerator(this.state.processedPoints, this.state.radius, maxValue);
+      script = heatmapInputGenerator(this.state.processedPoints, this.state.radius, maxValue);
       webview = script ?
         <WebView
           source={{ uri: uri }}

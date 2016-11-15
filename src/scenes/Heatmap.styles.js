@@ -2,11 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   webviewBackground: {
-    resizeMode: 'stretch',
-    flex: 1,
-    width: null
+    height: 100,
+    width: 300
   },
   webview: {
-    backgroundColor: colors.transparent
+    backgroundColor: 'transparent'
   }
 });

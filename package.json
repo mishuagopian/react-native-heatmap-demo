@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "postinstall": "cp node_modules/heatmap.js/build/heatmap.min.js ios/assets/ && cp node_modules/heatmap.js/build/heatmap.min.js android/app/src/main/assets/",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },

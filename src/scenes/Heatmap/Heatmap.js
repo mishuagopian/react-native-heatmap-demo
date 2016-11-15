@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, View, WebView } from 'react-native';
+import { Platform, Text, TouchableOpacity, View, WebView } from 'react-native';
 
 import HeatmapUtils from '../../utils/HeatmapUtils';
 import styles from './Heatmap.styles';
@@ -26,7 +26,7 @@ export default class Heatmap extends Component {
         // https://github.com/facebook/react-native/issues/953
         this.refs.heatmap.measure((ox, oy, width, height) => {
           const radius = Math.round(width * 0.05);
-          const processedPoints = HeatmapUtils.processPoints({ x: 1, y: 1 },
+          const processedPoints = HeatmapUtils.processPoints({ x: 0, y: 1 },
                                                              { x: 0, y: 0 },
                                                              { x: 2, y: 0 },
                                                              [ { x: 1, y: 0.5 } ],
@@ -49,7 +49,6 @@ export default class Heatmap extends Component {
         <WebView
           source={{ uri: uri }}
           scrollEnabled={false}
-          style={styles.webview}
           injectedJavaScript={script}
           javaScriptEnabled
         />
@@ -57,11 +56,13 @@ export default class Heatmap extends Component {
     }
 
     return (
-      <View
-        style={styles.webviewBackground}
-        ref='heatmap'
-      >
-        { webview }
+      <View style={styles.container} >
+        <View
+          style={styles.webview}
+          ref='heatmap'
+        >
+          { webview }
+        </View>
       </View>
     );
   }

@@ -11,7 +11,7 @@ const values = (obj) => {
   return array;
 };
 
-exports.processPoints = (firstPoint, secondPoint, thirdPoint, sessionPoints, width, height, radius = width * 0.05) => {
+exports.processPoints = (firstPoint, secondPoint, thirdPoint, sessionPoints, width, height, radius) => {
   const initialPoints = [firstPoint, secondPoint, thirdPoint];
   let transformedPoints = sessionPoints.concat(initialPoints);
 
@@ -79,15 +79,15 @@ exports.processPoints = (firstPoint, secondPoint, thirdPoint, sessionPoints, wid
   const xMax = Math.max(...transformedInitialPoints.map((p) => p.x));
   const yMax = Math.max(...transformedInitialPoints.map((p) => p.y));
   transformedPoints.forEach((p) => {
-    p.x = p.x * (width - 2 * radius) / xMax + radius;
-    p.y = p.y * (height - 2 * radius) / yMax + radius;
+    p.x = p.x * (width - 3 * radius) / xMax + radius;
+    p.y = p.y * (height - 3 * radius) / yMax + radius;
   });
 
   /*
    * Filtering outside points
   */
-  const scaledXMax = xMax * (width - 2 * radius) / xMax + radius;
-  const scaledYMax = yMax * (height - 2 * radius) / yMax + radius;
+  const scaledXMax = xMax * (width - 3 * radius) / xMax + radius;
+  const scaledYMax = yMax * (height - 3 * radius) / yMax + radius;
   transformedPoints = transformedPoints.filter((p) => {
     return p.x >= -radius && p.x <= scaledXMax + radius &&
            p.y >= -radius && p.y <= scaledYMax + radius;

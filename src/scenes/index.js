@@ -7,10 +7,8 @@ export default function Index () {
   return (
     <View
       style={{
-        alignItems: 'center',
         backgroundColor: 'black',
-        flex: 1,
-        justifyContent: 'center'
+        flex: 1
       }}
     >
       <Heatmap />

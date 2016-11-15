@@ -1,11 +1,14 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  webviewBackground: {
-    height: 100,
-    width: 300
+  container: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center'
   },
   webview: {
-    backgroundColor: 'transparent'
+    backgroundColor: 'white',
+    height: 100,
+    width: 300
   }
 });

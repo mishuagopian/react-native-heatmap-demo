@@ -29,13 +29,18 @@ export default class Heatmap extends Component {
   }
 
   handleSuffle(width, height, radius) {
-    const points = this.generatePoints(width, height);
-    const processedPoints = HeatmapUtils.processPoints({ x: 0, y: height },
-                                                       { x: 0, y: 0 },
-                                                       { x: width, y: 0 },
-                                                       points,
-                                                       width, height, radius);
-    this.setState({ processedPoints });
+    setTimeout(() => {
+      const points = this.generatePoints(width, height);
+      const processedPoints = HeatmapUtils.processPoints({ x: 0, y: height },
+                                                         { x: 0, y: 0 },
+                                                         { x: width, y: 0 },
+                                                         points,
+                                                         width, height, radius);
+      this.setState({ processedPoints });
+    });
+
+    // Forcing heatmap to empty
+    this.setState({ processedPoints: null });
   }
 
   render() {

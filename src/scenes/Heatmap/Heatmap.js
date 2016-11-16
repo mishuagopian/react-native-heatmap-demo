@@ -39,13 +39,12 @@ export default class Heatmap extends Component {
   }
 
   render() {
-    const uri = Platform.OS === 'ios' ? 'heatmap.html' : 'file:///android_asset/heatmap.html';
-    let script = null;
     let webview = null;
 
     if (this.state.processedPoints) {
+      const uri = Platform.OS === 'ios' ? 'heatmap.html' : 'file:///android_asset/heatmap.html';
       const maxValue = Math.max(...this.state.processedPoints.map((p) => p.value));
-      script = heatmapInputGenerator(this.state.processedPoints, this.state.radius, maxValue);
+      const script = heatmapInputGenerator(this.state.processedPoints, this.state.radius, maxValue);
       webview = <WebView
         source={{ uri: uri }}
         scrollEnabled={false}
@@ -83,7 +82,6 @@ const heatmapInputGenerator = (points, radius, max) => {
       max: ${max},
       data: ${JSON.stringify(points)}
     });
-    alert(${JSON.stringify(points)});
   `;
 };
 

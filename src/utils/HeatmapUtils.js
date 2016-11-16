@@ -56,8 +56,8 @@ exports.processPoints = (firstPoint, secondPoint, thirdPoint, sessionPoints, wid
   const xMin = Math.min(...transformedInitialPoints.map((p) => p.x));
   const yMin = Math.min(...transformedInitialPoints.map((p) => p.y));
   transformedPoints.forEach((p) => {
-    p.x -= xMin < 0 ? xMin : 0;
-    p.y -= yMin < 0 ? yMin : 0;
+    p.x -= Math.floor(xMin < 0 ? xMin : 0);
+    p.y -= Math.floor(yMin < 0 ? yMin : 0);
   });
 
    /*
@@ -79,8 +79,8 @@ exports.processPoints = (firstPoint, secondPoint, thirdPoint, sessionPoints, wid
   const xMax = Math.max(...transformedInitialPoints.map((p) => p.x));
   const yMax = Math.max(...transformedInitialPoints.map((p) => p.y));
   transformedPoints.forEach((p) => {
-    p.x = p.x * (width - 3 * radius) / xMax + radius;
-    p.y = p.y * (height - 3 * radius) / yMax + radius;
+    p.x = Math.floor(p.x * (width - 3 * radius) / xMax + radius);
+    p.y = Math.floor(p.y * (height - 3 * radius) / yMax + radius);
   });
 
   /*

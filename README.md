@@ -1,7 +1,7 @@
 React Native Heatmap Demo
 =====================
 
-React Native heatmap demo app developed when writing [React Native Heatmap]() post in [Medium](https://medium.com/) using [heatmap.js package](https://www.patrick-wied.at/static/heatmapjs).
+React Native heatmap demo app developed when writing [React Native Heatmap](https://medium.com/wolox-driving-innovation/react-native-heatmap-cc29181e6276) post in [Medium](https://medium.com/) using [heatmap.js package](https://www.patrick-wied.at/static/heatmapjs).
 
 #### First steps
 
